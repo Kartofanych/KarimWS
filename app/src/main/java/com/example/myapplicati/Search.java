@@ -2,15 +2,19 @@ package com.example.myapplicati;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class Search extends Activity {
-    Drawable dr1,dr2;
+    private Drawable dr1,dr2;
     private TextView t1, t2,t3;
+    private ImageButton back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +24,14 @@ public class Search extends Activity {
         t1 = findViewById(R.id.f1);
         t2 = findViewById(R.id.f2);
         t3 = findViewById(R.id.f3);
+        back = findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Search.this, Main.class);
+                startActivity(intent);
+            }
+        });
         t1.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceAsColor")
             @Override
